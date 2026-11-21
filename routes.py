@@ -62,7 +62,7 @@ def get_tasks():
 
     # Applying PAGINATION 
     page = request.args.get("page", "1")   # Here 1 is default pages when nothing is mentioned in query param
-    per_page = request.args.get("per_page", "3")  # Here 3 is default tasks per page when nothing is mentioned in query param
+    per_page = request.args.get("per_page", "25")  # Here 3 is default tasks per page when nothing is mentioned in query param
     
     if not page.isdigit() or not per_page.isdigit():
         return jsonify({"message":"Page and per page values must be integers"}),400
