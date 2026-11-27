@@ -12,13 +12,38 @@
 
     <div class="task-form">
         <input type="text" id="task-title" placeholder="Enter a task...">
-        
 
         <button id="add-task-btn">Add Task</button>
+
+
+        <div class="task-filter">
+            <label for="filter-tasks">Filter Tasks:</label>
+
+            <select id="filter-tasks">
+                <option value="all">All Tasks</option>
+                <option value="true">Completed</option>
+                <option value="false">Pending</option>
+            </select>
+        </div>
+
+
+        <div class="task-sort">
+            <label for="sort-tasks">Sort Tasks:</label>
+
+            <select id="sort-tasks">
+                <option value="asc">Oldest First</option>
+                <option value="desc">Newest First</option>
+            </select>
+        </div>
+        
     </div>
 
-    <div id="task-list">
+    <div id="task-list"></div>
 
+    <div class="pagination">
+        <button id="prev-btn">Previous</button>
+        <span id="page-info">Page 1</span>
+        <button id="next-btn">Next</button>
     </div>
 
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>

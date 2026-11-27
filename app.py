@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from dotenv import load_dotenv
 from sqlalchemy import text
 import os,math
-from flask import Flask, jsonify, request, abort, render_template
+from flask import Flask, jsonify, abort, render_template
 import logging
 from extensions import db
 from models import Task

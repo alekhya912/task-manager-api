@@ -50,7 +50,7 @@ def get_tasks():
     elif completed=="false":
         query=query.filter_by(completed=False)
     elif completed is not None:
-        return jsonify({"message":"Invalid completed query param value"})
+        return jsonify({"message":"Invalid completed query param value"}),400
 
     #Sorting
     if sort_order=="asc" or sort_order is None:
@@ -58,11 +58,11 @@ def get_tasks():
     elif sort_order=="desc":
         query=query.order_by(Task.id.desc())
     elif sort_order is not None:
-        return jsonify({"message":"Invalid sort query param value"})
+        return jsonify({"message":"Invalid sort query param value"}),400
 
     # Applying PAGINATION 
     page = request.args.get("page", "1")   # Here 1 is default pages when nothing is mentioned in query param
-    per_page = request.args.get("per_page", "25")  # Here 3 is default tasks per page when nothing is mentioned in query param
+    per_page = request.args.get("per_page", "5")  # Here 3 is default tasks per page when nothing is mentioned in query param
     
     if not page.isdigit() or not per_page.isdigit():
         return jsonify({"message":"Page and per page values must be integers"}),400
